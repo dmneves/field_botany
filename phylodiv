@@ -60,3 +60,15 @@ legend('topright', legend = c('floresta', 'candeial', 'riparia',
 	col = c('darkgreen', 'green', 'yellow', 'orange', 'red'), bty = 'n')
 
 dev.off()
+
+##plot phylogeny interpolating habitat diversity
+obj1 <- contMap(tree, habitat, plot = F)
+cols<-setNames(rev(obj1$cols), 0:1000)
+
+tiff('phylo_habitat.tiff', height = 15, width = 15, unit = 'cm', res = 300)
+plotTree.wBars(obj1$tree, habitats,  scale = 5, tip.labels = F, type = 'fan',
+	method = "plotSimmap", colors = cols)
+add.color.bar(50,rev(obj1$cols),title="habitats",
+    lims=obj1$lims,digits=2,prompt=FALSE,
+	y = 50,lwd=4,fsize=1, subtitle = "length=50")
+dev.off()
