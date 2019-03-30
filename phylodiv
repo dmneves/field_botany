@@ -54,13 +54,13 @@ biomes <- read.table('biomes.csv', header = T, row.names = 1, sep = ',')
 pdf('phylotrait_plot.pdf', height = 15, width = 15)
 
 trait.plot(tree, as.data.frame(biomes), tip.color = 'white',
-	cols = list(mata = c('white', "darkgreen"),
-	riparia = c("white", "green"),
-	ruderal = c("white", "yellow"),
-	rupicola = c("white", "red")), cex.lab = 0.4,
+	cols = list(riparia = c('white', "darkgreen"),
+	ruderal = c("white", "green"),
+	rupicola = c("white", "yellow"),
+	semidecidual = c("white", "red")), cex.lab = 0.4,
 	legend = F, edge.color = 'gray')
 
-legend('topright', legend = c('mata', 'riparia', 'ruderal',
+legend('topright', legend = c('riparia', 'ruderal', 'semidecidual',
 	'rupicola'), pch = 15,
 	col = c('darkgreen', 'green', 'yellow', 'red'), bty = 'n')
 
