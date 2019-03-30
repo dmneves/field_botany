@@ -16,7 +16,6 @@ install.packages('phytools')
 install.packages('diversitree')
 install.packages('vegan')
 install.packages('recluster')
-install.packages('dismo')
 
 #load packages
 require(picante)
@@ -24,7 +23,6 @@ require(phytools)
 require(diversitree)
 require(vegan)
 require(recluster)
-require(dismo)
 
 #load family-by-site matrix (used in varpart analyses)
 spp <- read.table(file.choose(), header = T, row.names = 1, sep = ',')
@@ -56,16 +54,15 @@ biomes <- read.table('biomes.csv', header = T, row.names = 1, sep = ',')
 pdf('phylotrait_plot.pdf', height = 15, width = 15)
 
 trait.plot(tree, as.data.frame(biomes), tip.color = 'white',
-	cols = list(semidecidual = c('white', "darkgreen"),
-	candeial = c("white", "green"),
-	riparia = c("white", "yellow"),
-	savana = c("white", "orange"),
-	degradado = c("white", "red")), cex.lab = 0.4,
+	cols = list(mata = c('white', "darkgreen"),
+	riparia = c("white", "green"),
+	ruderal = c("white", "yellow"),
+	rupicola = c("white", "red")), cex.lab = 0.4,
 	legend = F, edge.color = 'gray')
 
-legend('topright', legend = c('floresta', 'candeial', 'riparia',
-	'savana', 'degradado'), pch = 15,
-	col = c('darkgreen', 'green', 'yellow', 'orange', 'red'), bty = 'n')
+legend('topright', legend = c('mata', 'riparia', 'ruderal',
+	'rupicola'), pch = 15,
+	col = c('darkgreen', 'green', 'yellow', 'red'), bty = 'n')
 
 dev.off()
 
@@ -81,4 +78,10 @@ add.color.bar(50,rev(obj1$cols),title="habitats",
 	y = 50,lwd=4,fsize=1, subtitle = "length=50")
 
 dev.off()
+
+#phylosimilarity (merge habitats in community matrix)
+phylosim <- recluster.cons(mat, tree)
+
+#plot dendrogram
+plot(phylosim$cons)
 
