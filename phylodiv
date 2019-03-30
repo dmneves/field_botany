@@ -3,7 +3,7 @@
 ##in phylomatic
 #execute phylocom.bat (make sure files "R20160415.new" and "ages" are in working directory)
 #reconstruct the phylogenetic hypothesis
-#(make sure names in "spp_phylocom.txt" are formatted as "achatocarpaceae/achatocarpus/Achatocarpus_praecox","...",...)
+#(make sure names in "spp_phylocom.txt" are formatted as "achatocarpaceae/achatocarpus/achatocarpus_praecox","...",...)
 phylomatic -f R20160415.new -t spp_phylocom.txt > phy
 
 #generate tree
