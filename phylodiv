@@ -20,7 +20,7 @@ require(phytools)
 require(diversitree)
 require(vegan)
 
-#load spp-by-site amatrix (used in varpart analyses)
+#load family-by-site matrix (used in varpart analyses)
 spp <- read.table(file.choose(), header = T, row.names = 1, sep = ',')
 
 #load and check the tree
@@ -73,4 +73,6 @@ plotTree.wBars(obj1$tree, habitats,  scale = 5, tip.labels = F, type = 'fan',
 add.color.bar(50,rev(obj1$cols),title="habitats",
     lims=obj1$lims,digits=2,prompt=FALSE,
 	y = 50,lwd=4,fsize=1, subtitle = "length=50")
+
 dev.off()
+
