@@ -14,9 +14,11 @@ phylocom bladj -f phy > tree.tre
 install.packages('picante')
 install.packages('phytools')
 install.packages('diversitree')
+install.packages('vegan')
 require(picante)
 require(phytools)
 require(diversitree)
+require(vegan)
 
 #load spp-by-site amatrix (used in varpart analyses)
 spp <- read.table(file.choose(), header = T, row.names = 1, sep = ',')
