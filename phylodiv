@@ -10,17 +10,21 @@ phylomatic -f R20160415.new -t spp_phylocom.txt > phy
 phylocom bladj -f phy > tree.tre
 
 ##in R! paste phylocom tree in R's working directory
-#install and load packages
+#install packages
 install.packages('picante')
 install.packages('phytools')
 install.packages('diversitree')
 install.packages('vegan')
 install.packages('recluster')
+install.packages('dismo')
+
+#load packages
 require(picante)
 require(phytools)
 require(diversitree)
 require(vegan)
 require(recluster)
+require(dismo)
 
 #load family-by-site matrix (used in varpart analyses)
 spp <- read.table(file.choose(), header = T, row.names = 1, sep = ',')
