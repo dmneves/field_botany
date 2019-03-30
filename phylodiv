@@ -80,7 +80,7 @@ add.color.bar(50,rev(obj1$cols),title="habitats",
 dev.off()
 
 #phylosimilarity (merge habitats in community matrix)
-phylosim <- recluster.cons(mat, tree)
+phylosim <- recluster.cons(mat, tree, tr = 1000)
 
 #plot dendrogram
 plot(phylosim$cons)
